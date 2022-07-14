@@ -16,8 +16,6 @@ app.get('/metadata/:id', async (req, res) => {
 
 girl.on("Minted", girlMinted);
 
-
-
 app.listen(3000, () => {
   console.log("server running on port 3000");
 })

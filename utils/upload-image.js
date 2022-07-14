@@ -9,10 +9,12 @@ module.exports.uploadImage = async (buffer, type, id) => {
 
   // todo
 
+  // dont understand
+
   const { data, error } = await supabase
     .storage
     .from('images')
-    .upload(`${id}.png`, b64toBlob(buffer), {
+    .upload(`${id}.png`, buffer, {
       contentType: 'image/png'
     });
     
