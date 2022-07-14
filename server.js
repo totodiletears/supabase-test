@@ -1,5 +1,5 @@
 require('dotenv').config();
-const port = process.env.PORT || 3000;
+const port = 3000;
 
 const express = require('express');
 const app = express();
@@ -27,6 +27,6 @@ app.get('/user/:address', async (req, res) => {
 girl.on("Minted", girlMinted);
 girl.on("Transfer", girlTransferred);
 
-app.listen(port, () => {
-  console.log("server running on port 3000");
+app.listen(process.env.PORT || port, () => {
+  console.log(`Listening on port ${port}`);
 })
