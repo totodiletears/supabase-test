@@ -10,8 +10,8 @@ class Girl {
     this.name = "Tokyo Gacha Girl";
     this.description = "Girls doing things";
     this.id = id;
-    this.image = `http://image.com/image/${id}.png`;
-    this.preview = `http://image.com/image/preview/${id}.png`;
+    this.image = `${process.env.IMG_BASE_URL}/${id}.png`;
+    this.preview = `${process.env.IMG_BASE_URL}/preview/${id}.png`;
     this.attributes = [
       {
         trait_type: "Background",
@@ -46,6 +46,7 @@ class Girl {
         value: nose[0]
       }
     ]
+    this.owner_address = null;  
   }
 }
 

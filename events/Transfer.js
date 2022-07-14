@@ -1,10 +1,8 @@
-const { updateUser } = require('../utils/update-user');
+const { updateOwner } = require('../utils/update-owner');
 
 module.exports.girlTransferred = async function(from, to, ID) {
+  const id = Number(ID);
   if (from !== '0x0000000000000000000000000000000000000000') {
-    await updateUser(from, to, Number(ID));
-    console.log("Girl transferred: ", Number(ID));
+    await updateOwner(from, to, id);
   }
 }
-
-// todo

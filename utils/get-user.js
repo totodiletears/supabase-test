@@ -1,20 +1,16 @@
 const supabase = require('../helpers/supabase');
 
-const getMetadata = async (id) => {
+const getUser = async (address) => {
   const { data, error } = await supabase
     .from('metadata')
     .select(`
-        id,
-        name,
-        description,
-        image,
-        preview,
-        attributes
+      id,
+      preview
     `)
-    .eq('id', id)
+    .eq('owner_address', address)
 
   if (error) console.log(error);
   return data;
 }
 
-module.exports = { getMetadata };
+module.exports = { getUser };

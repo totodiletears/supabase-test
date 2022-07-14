@@ -1,21 +1,15 @@
 const supabase = require('../helpers/supabase');
-const { decode } = require('base64-arraybuffer');
-const basePath = process.cwd();
-const fs = require("fs");
 
-const path = process.cwd();
-
-module.exports.uploadImage = async (buffer, type, id) => {
-
-  // todo
-
-  // dont understand
+module.exports.uploadImage = async (buffer, isPreview, id) => {
+  let name = "";
+  isPreview ? name = `preview/${id}.png` : name = `${id}.png`;
 
   const { data, error } = await supabase
     .storage
     .from('images')
-    .upload(`${id}.png`, buffer, {
-      contentType: 'image/png'
+    .upload(name, buffer, {
+      contentType: 'image/png',
+      upsert: true
     });
     
   error ? console.log(error) : console.log(data)

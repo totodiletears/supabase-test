@@ -1,14 +1,12 @@
 const supabase = require('../helpers/supabase');
-const { Girl } = require('../Girl');
 
-const createGirl = async (id) => {
-  const girl = new Girl(id);
+const updateOwner = async (from, to, id) => {
   const { data, error } = await supabase
     .from('metadata')
-    .insert(girl);
+    .update({ owner_address: to })
+    .match({ id: id })
 
   error ? console.log(error) : console.log(data);
-  return girl;
 }
 
-module.exports = { createGirl };
+module.exports = { updateOwner };
