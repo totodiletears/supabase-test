@@ -1,5 +1,5 @@
 const supabase = require('../helpers/supabase');
-const { Girl } = require('../Girl');
+const { Girl } = require('../models/Girl');
 
 const createGirl = async (id) => {
   const girl = new Girl(id);
